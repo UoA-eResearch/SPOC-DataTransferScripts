@@ -9,6 +9,7 @@ do
     if [[ "$good_checksum" == "$test_checksum" ]]
     then
 	echo "./eng/${f%.*}" >> $SAFEDELETE # if they match append file name to safe_deletion file
+	mv $f ./processed/$f
     else # log error message
         echo "`date -u` ERROR Bad checksum for file: ${f%.*}" >> /home/ubuntu/logs/checksums.log
     fi
@@ -22,6 +23,7 @@ do
     if [[ "$good_checksum" == "$test_checksum" ]]
     then
 	echo "./ims/${f%.*}" >> $SAFEDELETE # if they match append file name to safe_deletion file
+	mv $f ./processed/$f
     else # log error message
         echo "`date -u` ERROR Bad checksum for file: ${f%.*}" >> /home/ubuntu/logs/checksums.log
     fi
@@ -35,6 +37,7 @@ do
     if [[ "$good_checksum" == "$test_checksum" ]]
     then
 	echo "./ngrx/${f%.*}" >> $SAFEDELETE # if they match append file name to safe_deletion file
+	mv $f ./processed/$f
     else # log error message
         echo "`date -u` ERROR Bad checksum for file: ${f%.*}" >> /home/ubuntu/logs/checksums.log
     fi
@@ -48,6 +51,7 @@ do
     if [[ "$good_checksum" == "$test_checksum" ]]
     then
 	echo "./ngrx_raw/${f%.*}" >> $SAFEDELETE # if they match append file name to safe_deletion file
+	mv $f ./processed/$f
     else # log error message
         echo "`date -u` ERROR Bad checksum for file: ${f%.*}" >> /home/ubuntu/logs/checksums.log
     fi
