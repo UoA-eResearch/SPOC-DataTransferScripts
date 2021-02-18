@@ -23,7 +23,8 @@ do
     test_checksum=`md5sum ${f%.*} | awk '{ print $1 }' ` # Calculate local checksum
     if [[ "$good_checksum" == "$test_checksum" ]]
     then
-	echo "./ins/${f%.*}" >> $GOODFILELIST # if they match append file name to good file list
+	echo "./ins/$(basename ${f%.*})" >> $GOODFILELIST 
+	echo "./ins/$(basename $f)" >> $GOODFILELIST # if they match append file name to good file list
     else # log error message
         echo "`date -u` ERROR Bad checksum for file: ${f%.*}" >> /home/ubuntu/logs/checksums.log
     fi
@@ -37,7 +38,8 @@ do
     test_checksum=`md5sum ${f%.*} | awk '{ print $1 }' ` # Calculate local checksum
     if [[ "$good_checksum" == "$test_checksum" ]]
     then
-	echo "./ngrx/${f%.*}" >> $GOODFILELIST # if they match append file name to good file list
+	echo "./ngrx/$(basename ${f%.*})" >> $GOODFILELIST 
+	echo "./ngrx/$(basename $f)" >> $GOODFILELIST # if they match append file name to good file list
     else # log error message
         echo "`date -u` ERROR Bad checksum for file: ${f%.*}" >> /home/ubuntu/logs/checksums.log
     fi
@@ -51,7 +53,8 @@ do
     test_checksum=`md5sum ${f%.*} | awk '{ print $1 }' ` # Calculate local checksum
     if [[ "$good_checksum" == "$test_checksum" ]]
     then
-	echo "./ngrx_raw/${f%.*}" >> $GOODFILELIST # if they match append file name to good file list
+	echo "./ngrx_raw/$(basename ${f%.*})" >> $GOODFILELIST 
+	echo "./ngrx_raw/$(basename $f)" >> $GOODFILELIST # if they match append file name to good file list
     else # log error message
         echo "`date -u` ERROR Bad checksum for file: ${f%.*}" >> /home/ubuntu/logs/checksums.log
     fi
